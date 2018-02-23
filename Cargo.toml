@@ -1,0 +1,15 @@
+[package]
+authors = ["Sebastian Woetzel <wose@zuendmasse.de>"]
+categories = ["embedded-hal-driver", "embedded", "hardware-support", "no-std"]
+description = "A platform agnostic driver to interface with the AT24C32/64 EEPROM"
+keywords = ["embedded-hal", "embedded-hal-driver", "eeprom"]
+license = "MIT OR Apache-2.0"
+name = "at24cx"
+repository = "https://github.com/wose/at24cx"
+version = "0.1.0"
+
+[dependencies]
+embedded-hal = "0.1.2"
+
+[dev-dependencies]
+linux-embedded-hal = "0.1.1"
