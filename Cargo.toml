@@ -11,5 +11,9 @@ version = "0.1.0"
 [dependencies]
 embedded-hal = "0.1.2"
 
+[dependencies.byteorder]
+default-features = false
+version = "1.2.1"
+
 [dev-dependencies]
 linux-embedded-hal = "0.1.1"

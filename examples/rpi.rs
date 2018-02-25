@@ -9,14 +9,14 @@ use std::time::Duration;
 fn main() {
     let mut dev = I2cdev::new("/dev/i2c-1").unwrap();
     let eeprom = AT24Cx::new();
-
-    eeprom.write(&mut dev, 0x0042, 42).unwrap();
-
-    // wait 10ms for the write to finish or the eeprom will NAK the next write or read request
+    eeprom.write_page(&mut dev, 32, &[0xEE; 32]).unwrap();
     thread::sleep(Duration::from_millis(10));
 
-    println!(
-        "The answer to the ultimate question of life, the universe and everything is {}.",
-        eeprom.read(&mut dev, 0x0042).unwrap()
-    );
+    let mem: [u8; 4096] = eeprom.read(&mut dev, 0x0000).unwrap();
+    for page in mem.chunks(32) {
+        for byte in page {
+            print!("{:X} ", byte);
+        }
+        println!();
+    }
 }
