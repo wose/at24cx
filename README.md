@@ -10,7 +10,7 @@
 - [X] sequential read
 - [ ] writes across page boundary
 - [ ] ACK polling
-- [ ] support all 8 i2c addresses
+- [X] support all 8 i2c addresses
 - [ ] support different page sizes
 - [ ] support different address sizes
 
